@@ -10,7 +10,6 @@ const logger = require("morgan");
 const path = require("path");
 
 // custom app routes
-const apiUser = require("./routes/api_user");
 
 mongoose
   .connect("mongodb://localhost/awesome-project", { useNewUrlParser: true })
@@ -59,7 +58,9 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 app.use("/", index);
-app.use("/api/user/", apiUser);
+
+const apiUser = require("./routes/api_user");
+app.use("/api/user/", apiUser.router);
 
 module.exports = app;
 

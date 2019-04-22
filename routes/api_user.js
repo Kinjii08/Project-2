@@ -2,21 +2,45 @@ const userModel = require("./../models/user");
 const express = require("express");
 const router = new express.Router();
 
+const create = data => userModel.create(data);
 const getAll = () => userModel.find();
-
-const create = (data) => userModel.create(data);
-
-router.get("/all", (req, res) => {
-  getAll()
-  .then(users => res.send(users))
-  .catch(dberr => res.send(dberr))
-});
-
+const getOne = id => userModel.findById(id);
+const getBy = data => userModel.findOne(data);
+const deleteOne = id => userModel.findByIdAndDelete(id);
+const updateOne = id => "@todo update user";
 
 router.post("/create", (req, res) => {
   create(req.body)
-  .then(user => res.send(user))
-  .catch(dberr => res.send(dberr))
+    .then(user => res.send(user))
+    .catch(dberr => res.send(dberr));
 });
 
-module.exports = router;
+router.get("/all", (req, res) => {
+  getAll()
+    .then(user => res.send(user))
+    .catch(dberr => res.send(dberr));
+});
+
+router.get("/:id", (req, res) => {
+  getOne(req.params, id)
+    .then(user => res.send(user))
+    .catch(dberr => res.send(dberr));
+});
+
+router.delete("/:id", (req, res) => {
+  deleteOne(req.params, id)
+    .then(user => res.send(user))
+    .catch(dberr => res.send(dberr));
+});
+
+//module.exports = router;
+
+module.exports = {
+  create,
+  deleteOne,
+  getAll,
+  getBy,
+  getOne,
+  updateOne,
+  router
+};
