@@ -9,6 +9,12 @@ body {
   width: 100%;
   height: 100%; }
 
+header {
+  position: auto;
+  width: 5rem;
+  height: 5rem;
+  background: none; }
+
 nav {
   color: #e6e9ec; }
 
