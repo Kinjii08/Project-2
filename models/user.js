@@ -13,10 +13,6 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  // schoolId: {
-  //   type: String,
-  //   required: true
-  // },
 
   field: {
     type: String,

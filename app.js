@@ -62,6 +62,12 @@ app.use("/", index);
 const apiUser = require("./routes/api_user");
 app.use("/api/user/", apiUser.router);
 
+const apiSchool = require("./routes/api_school");
+app.use("/api/school/", apiSchool.router);
+
+const apiCompany = require("./routes/api_company");
+app.use("/api/company/", apiCompany.router);
+
 module.exports = app;
 
 // const listener = app.listen(process.env.PORT, () => {
