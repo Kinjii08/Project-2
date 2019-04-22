@@ -76,7 +76,4 @@ required: true
 website: {
 address: Object,
 required:true
-}, 
-
-
-
+}
