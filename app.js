@@ -9,6 +9,9 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
+// custom app routes
+const apiUser = require("./routes/api_user");
+
 mongoose
   .connect("mongodb://localhost/awesome-project", { useNewUrlParser: true })
   .then(x => {
@@ -56,9 +59,10 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 app.use("/", index);
+app.use("/api/user/", apiUser);
 
 module.exports = app;
 
-const listener = app.listen(process.env.PORT, () => {
-  console.log("app started at http://localhost:" + listener.address().port);
-});
+// const listener = app.listen(process.env.PORT, () => {
+//   console.log("app started at http://localhost:" + listener.address().port);
+// });

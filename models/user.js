@@ -1,79 +1,69 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-name: {
-  type: String,
-  required: true
-},
-lastname: {
-  type: String,
-  required: true
-},
-email: {
-  type: String,
-  required: true
-},
-city: {
-  type: String,
-  required: true
-},
-school: {
-  type: String,
-  required: true
-},
+  name: {
+    type: String,
+    required: true
+  },
+  lastname: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  // schoolId: {
+  //   type: String,
+  //   required: true
+  // },
 
-graduationYear:{
-  type:Date,
-  required:true
-},
+  field: {
+    type: String,
+    required: true
+  },
 
-StudyField:{
-type: String,
-required:true
-},
+  gender: {
+    type: String,
+    enum: ['Male', 'Female'],
+    required: true
 
-gender: {
-  type: string,
-  required: true
+  },
 
-},
+  age: {
+    type: Number,
+    required: true
 
-languages: {
-  type:string,
-  required:true
-}, 
+  },
 
-experience: {
-type:Object,
-required:true
-},
+  website: {
+    address: Object,
+  },
 
+  birthday: {
+    type: Date,
+    required: true
+  },
 
-availability: {
-  type: Date,
-  required:true
-}, 
+  degree: {
+    type: String,
+    enum: ['High School Degree', 'Bachelor', 'Master', 'MBA', 'PhD'],
+    required: true
+  },
 
+  skills: {
+    type: String
+  },
 
-aboutme: {
-type: string,
-required:true
+  role: {
+    type: String,
+    enum: ["Student", "Teacher"],
+    required: true,
+    default: "Student"
+  }
 
-},
+});
 
+const UserModel = mongoose.model("User", userSchema);
 
-whatIamSeeking: {
-type:string, 
-required:true
-},
-
-age: {
-type: Number,
-required: true
-
-},
-
-website: {
-address: Object,
-required:true
-}
+module.exports = UserModel;
