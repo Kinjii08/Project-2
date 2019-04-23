@@ -6,7 +6,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("formulaire.hbs");
+  res.render("signUpForm.hbs");
 });
 
 router.get("/about", (req, res, next) => {

@@ -13,6 +13,11 @@ router.get("/login", (req, res) => {
   res.send("login.hbs");
 });
 
+router.get("/signup ", (req, res) => {
+  res.send("singUpForm.hbs");
+});
+
+
 router.get("/about", (req, res) => {
   res.render("about.hbs");
 });
