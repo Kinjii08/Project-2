@@ -68,6 +68,9 @@ app.use("/api/school/", apiSchool.router);
 const apiCompany = require("./routes/api_company");
 app.use("/api/company/", apiCompany.router);
 
+const authRouter = require("./routes/authRouter");
+app.use("/", authRouter);
+
 module.exports = app;
 
 // const listener = app.listen(process.env.PORT, () => {
