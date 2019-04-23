@@ -6,7 +6,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("signUpForm.hbs");
+  res.render("formulaire.hbs");
 });
 
 module.exports = router;

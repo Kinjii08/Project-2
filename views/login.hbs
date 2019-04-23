@@ -1,80 +1,48 @@
-<form id="form"></form>
+<div class="signin"></div>
+<form action="./login.hbs" method="POST" id="form">
+  <h2 style="color:white">Log In</h2>
+  <input type="text" name="LogIn" placeholder="Log In"><br><br>
+  <input type="password" name="password" placeholder="Password"><br></br>
+  <a href="./"><input type="button" value="Enter"></a><br>
+  <br>
+  <div id="container">
 
-<label class="form_col" for="firstName">First Name :</label>
-<input name="firstName" id="firstName" type="text" />
-<span class="tooltip">Your first Name</span>
-<br><br>
+  </div>
+  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Reset password</a>
+  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Forgot password</a>
+  </div><br><br><br><br><br><br>
 
-<label class="form_col" for="lastName">Last Name :</label>
-<input name="lastName" id="lastName" type="text">
-<span class="tooltip">Your last name</span>
-<br><br>
-
-<label class="form_col" for="age">Age :</label>
-<input name="age" id="age" type="text">
-<span class="tooltip">Your age</span>
-
-<span class="form_col">Sexe: </span>
-<label><input name="sex" type="radio" value="H">Male</label>
-<label><input name="sex" type="radio" value="F">Female</label>
-<span class="tooltip"> You have to select your gender</span>
-<br><br>
-
-<span class="form_col">Email: </span>
-<label><input type="email" name="email" id="email"></label>
-<span class="tooltip">Enter your email adresse</span>
-<br><br>
-
-<span class="form_col">Field</span>
-<label><input type="" id="field"></label>
-<button type=""></button>
-<span class="tooltip">What is your field</span>
-<br><br>
-
-
-<form action="Field">
-  <p>What is your field of expertise</p>
-  <p>
-    <input type="radio" name="role" value="Professional"> Professional<br>
-    <input type="radio" name="role" value="Teacher"> Teacher<br>
-    <input type="radio" name="role" value="Student"> Student
-  </p>
 </form>
 
-<label class="form_col" for="login">Login</label>
-<input name="login" id="login" type="text">
-<span class="tooltip">Choose your login</span>
-<br><br>
-
-<label class="form_col" for="pwd1"></label>
-<input name="pwd1" id="pwd1" type="password">
-<span class="tooltip">Password</span>
-<br><br>
-
-<label class="form_col" for="pwd2"></label>
-<input name="pwd2" id="pwd2" type="password">
-<span class="tooltip">Confirm password</span>
-<br><br>
-
+<form id="form"></form>
+<br><br><br>
 <input type="text" name="Firstname" placeholder="Firstname">
 <input type="text" name="Lastname" placeholder="Lastname">
 <br></br><br>
 
+<input type="age" name="Age" placeholder="Age">
+<br></br><br>
 
+<input type="text" name="Gender" placeholder="Gender">
+<br></br><br>
 
+<input type="email" name="Email" placeholder="Email">
+<br></br><br>
 
-
-
-
-
-
+<input type="checkbox" name="Professional" placeholder="Professional">
+<label for="professional">Professional</label>
+<input type="checkbox" name="Teacher" id="Teacher">
+<label for="Teacher">Teacher</label>
+<input type="checkbox" name="Student" id="Student">
+<label for="Student">Student</label>
+<br></br>
 
 <div class="signin"></div>
 <form action="./login.hbs" method="POST" id="form">
   <h2 style="color:white">Log In</h2>
-  <input type="text" name="username" placeholder="username">
-  <input type="password" name="pass" placeholder="Password"><br></br>
-  <a href=""><input type="button" value="Log In"></a><br>
+  <input type="text" name="username" placeholder="Choose your username"><br><br>
+  <input type="password" name="pass" placeholder="Choose your password"><br></br>
+  <a href="./"><input type="button" value="Enter"></a><br>
   <br>
   <div id="container">
 
