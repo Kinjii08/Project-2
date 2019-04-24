@@ -7,7 +7,8 @@ const getAll = () => userModel.find();
 const getOne = id => userModel.findById(id);
 const getBy = data => userModel.findOne(data);
 const deleteOne = id => userModel.findByIdAndDelete(id);
-const updateOne = id => userModel.findByIdAndUpdate(id);
+const updateOne = (id, data) =>
+  userModel.findByIdAndUpdate({ _id: id }, { ...data });
 
 // API //
 

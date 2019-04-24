@@ -30,6 +30,9 @@ router.get("/user-profile/edit/:id", (req, res) => {
 router.post("/user-profile/edit/:id", (req, res) => {
   console.log(req.params.id);
   console.log(req.body); //body contient les data du formulaires profile
+  APIUser.updateOne(req.params.id, req.body)
+    .then(() => res.redirect("/user-profile/edit/" + req.params.id))
+    .then(err => res.redirect("/user-profile/edit/"));
 });
 
 router.get("/school-profile/:id", (req, res) => {

@@ -30,9 +30,7 @@ const userSchema = new Schema({
     required: true
   },
 
-  website: {
-    address: Object
-  },
+  website: String,
 
   birthday: {
     type: Date,

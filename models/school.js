@@ -26,7 +26,7 @@ const schoolSchema = new Schema({
     required: true
   },
 
-  degree: {
+  degrees: {
     type: String,
     enum: ["High School Degree", "Bachelor", "Master", "MBA", "PhD"],
     required: true
