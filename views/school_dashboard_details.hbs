@@ -1,0 +1,40 @@
+<table id="school_profile" class="board">
+    <thead class="head">
+        <tr class="row">
+            <th class="cell">role</th>
+            <th class="cell">school name</th>
+            <th class="cell">date of creation</th>
+            <th class="cell">email</th>
+            <th class="cell">website</th>
+            <th class="cell">field</th>
+            <th class="cell">degree</th>
+            <th class="cell">delete</th>
+        </tr>
+    </thead>
+    <tbody class="body">
+        {{#each school }}
+        <tr id="school_{{this._id}}" class="row">
+            <td class="cell">{{ this.role }}</td>
+            <td class="cell">{{ this.name }}</td>
+            <td class="cell">{{ this.dateOfCreation }}</td>
+            <td class="cell">{{ this.email }}</td>
+            <td class="cell">{{ this.website }}</td>
+            <td class="cell">{{ this.field }}</td>
+            <td class="cell">{{ this.degree }}</td>
+            <td class="cell">{{ this.delete }}</td>
+
+            <td class="cell">
+                <a href="/dashboard/school/{{this._id}}/details">view</a>
+            </td>
+            <td class="cell">
+                <a href="/dashboard/school/delete/{{this._id}}" class="delete btn">X</a>
+                {{!-- <button class="delete btn" data-school-id="{{this._id}}">X</button> --}}
+            </td>
+        </tr>
+        {{else}}
+        <tr class="row">
+            <td colspan="7" class="cell row-empty">no schools yet</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

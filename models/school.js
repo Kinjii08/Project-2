@@ -20,6 +20,12 @@ const schoolSchema = new Schema({
     address: Object
   },
 
+  field: {
+    type: String,
+    enum: ["Art", "Business", "Web developement"],
+    required: true
+  },
+
   degree: {
     type: String,
     enum: ["High School Degree", "Bachelor", "Master", "MBA", "PhD"],
