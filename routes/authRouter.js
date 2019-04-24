@@ -1,7 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const APIUser = require("./api_user");
+<<<<<<< HEAD
 const APIuniversity = require("./../models/university");
+=======
+const APIuniversity = require("../models/university");
+const passport = require("passport");
+>>>>>>> 7e27453ff3e1f77221e1cbad57ea34850ed909fb
 
 //Passport Login
 router.get("/login", (req, res, next) => {
