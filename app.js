@@ -119,6 +119,8 @@ app.use("/api/school/", apiSchool.router);
 const apiCompany = require("./routes/api_company");
 app.use("/api/company/", apiCompany.router);
 
+app.use("/user_dashboard_details/", dashboardUserRouter);
+app.use("/school_dashboard_details/", dashboardProductRouter);
 module.exports = app;
 
 // const listener = app.listen(process.env.PORT, () => {
