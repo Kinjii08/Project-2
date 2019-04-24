@@ -1,0 +1,61 @@
+<style>
+    .is-hidden {
+        display: none;
+    }
+</style>
+
+<form id="form"></form>
+<input type="text" name="CompanyName" placeholder="CompanyName">
+
+<input type="age" name="Date of Creation" placeholder="Date of Creation">
+<br></br><br>
+
+<input type="email" name="email" placeholder="email">
+<br></br><br>
+
+<input type="url" name="website" placeholder="website">
+<br></br><br>
+
+<div id="register_user_role">
+    <label for="professional">Professional</label>
+    <input class="role-radio" type="radio" name="user_role" value="professional" id="professional">
+    <label for="teacher">Teacher</label>
+    <input class="role-radio" type="radio" name="user_role" value="teacher" id="teacher">
+    <label for="student">Student</label>
+    <input class="role-radio" type="radio" name="user_role" value="student" id="student" checked>
+</div>
+
+<div id="role_professional" class="role-block is-hidden">
+    <input type="url" name="website" placeholder="website">
+    <input type="text" name="companyName" placeholder="CompanyName">
+    <input type="tel" name="companyNumber" placeholder="companyNumber" id="number">
+</div>
+
+<div id="role_teacher" class="role-block is-hidden">
+    je suis le role des teachers
+</div>
+
+<div id="role_student" class="role-block">
+    <input type="url" name="webSite" placeholder="webSite">
+    <input type="text" name="schoolName" placeholder="schoolName">
+
+    <input type="text" name="id" placeholder="student_Id" id="number">
+</div>
+
+
+{{!-- 
+<div class="signin"></div>
+<form action="./login.hbs" method="POST" id="form">
+  <h2 style="color:white">Log In</h2>
+  <input type="text" name="username" placeholder="Choose your username"><br><br>
+  <input type="password" name="pass" placeholder="Choose your password"><br></br>
+  <a href="./"><input type="button" value="Enter"></a><br>
+  <br>
+  <div id="container">
+
+  </div>
+  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Reset password</a>
+  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Forgot password</a>
+  </div><br><br><br><br><br><br>
+
+</form> --}}
