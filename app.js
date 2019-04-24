@@ -13,20 +13,9 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const flash = require("connect-flash");
 
 
-// Login passport config
 
-
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -75,6 +64,19 @@ const debug = require("debug")(
 );
 
 const app = express();
+
+
+// Login passport config
+
+
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Middleware Setup
 app.use(logger("dev"));

@@ -14,11 +14,11 @@ router.get("/login", (req, res, next) => {
   res.render("login.hbs");
 });
 
-authRoutes.get("/login", (req, res, next) => {
+router.get("/login", (req, res, next) => {
   res.render("/login");
 });
 
-authRoutes.post("/login", passport.authenticate("local", {
+router.post("/login", passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login",
   failureFlash: true,
