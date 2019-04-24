@@ -1,0 +1,17 @@
+je suis le profile
+{{school.name}}
+
+{{#compare school.role "dev" operator="=="}}
+je suis une ecole de dev
+{{/compare}}
+
+{{#compare school.role "commerce" operator="=="}}
+Je suis une école de commerce
+{{/compare}}
+
+
+{{#compare school.role "Ingenieur" operator="=="}}
+Je suis une école d'ingénieur
+{{/compare}}
+
+<a href="/school-profile/edit/{{school._id}}">edit</a>

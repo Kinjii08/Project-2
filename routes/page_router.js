@@ -14,10 +14,25 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup ", (req, res) => {
-  res.send("singUpForm.hbs");
+  res.send("signUpForm.hbs");
 });
-
 
 router.get("/about", (req, res) => {
   res.render("about.hbs");
+});
+
+router.get("/user_edit", (req, res) => {
+  res.render("user_edit.hbs");
+});
+
+router.get("/user_profile", (req, res) => {
+  res.render("user_profile.hbs");
+});
+
+router.get("/school_edit", (req, res) => {
+  res.render("school_edit.hbs");
+});
+
+router.get("/school_profile", (req, res) => {
+  res.render("school_profile.hbs");
 });

@@ -5,22 +5,26 @@ const schoolSchema = new Schema({
     type: String,
     required: true
   },
-  
+
+  DateOfCreation: {
+    type: String,
+    required: true
+  },
+
   email: {
     type: String,
     required: true
   },
 
   website: {
-    address: Object,
+    address: Object
   },
 
   degree: {
     type: String,
-    enum: ['High School Degree', 'Bachelor', 'Master', 'MBA', 'PhD'],
+    enum: ["High School Degree", "Bachelor", "Master", "MBA", "PhD"],
     required: true
-  },
-
+  }
 });
 
 const SchoolModel = mongoose.model("School", schoolSchema);

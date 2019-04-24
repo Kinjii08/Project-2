@@ -33,6 +33,12 @@ router.delete("/:id", (req, res) => {
     .catch(dberr => res.send(dberr));
 });
 
+router.patch("/:id", (req, res) => {
+  updateOneOne(req.params.id)
+    .then(user => res.send(user))
+    .catch(dberr => res.send(dberr));
+});
+
 //module.exports = router;
 
 module.exports = {

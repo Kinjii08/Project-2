@@ -21,19 +21,17 @@ const userSchema = new Schema({
 
   gender: {
     type: String,
-    enum: ['Male', 'Female'],
+    enum: ["Male", "Female"],
     required: true
-
   },
 
   age: {
     type: Number,
     required: true
-
   },
 
   website: {
-    address: Object,
+    address: Object
   },
 
   birthday: {
@@ -43,7 +41,7 @@ const userSchema = new Schema({
 
   degree: {
     type: String,
-    enum: ['High School Degree', 'Bachelor', 'Master', 'MBA', 'PhD'],
+    enum: ["High School Degree", "Bachelor", "Master", "MBA", "PhD"],
     required: true
   },
 
@@ -57,7 +55,6 @@ const userSchema = new Schema({
     required: true,
     default: "Student"
   }
-
 });
 
 const UserModel = mongoose.model("User", userSchema);
