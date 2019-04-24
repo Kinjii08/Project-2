@@ -1,5 +1,5 @@
 je suis le profile
-{{user.name}}
+{{user.role}}
 
 {{#compare user.role "Teacher" operator="=="}}
 je suis un prof
@@ -13,5 +13,14 @@ Je suis un pro
 {{#compare user.role "Student" operator="=="}}
 Je suis un etudiant
 {{/compare}}
+
+
+<p>
+    <p>name: {{ user.name }}</p>
+    <p>lastname: {{ user.lastname }}</p>
+    <p>email: {{ user.email }}</p>
+    <p>age: {{ user.age }}</p>
+    <p>role: {{ user.role }}</p>
+</p>
 
 <a href="/user-profile/edit/{{user._id}}">edit</a>

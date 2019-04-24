@@ -1,0 +1,39 @@
+<table id="user_profile" class="board">
+    <thead class="head">
+        <tr class="row">
+            <th class="cell">role</th>
+            <th class="cell">name</th>
+            <th class="cell">lastname</th>
+            <th class="cell">email</th>
+            <th class="cell">age</th>
+            <th class="cell">gender</th>
+            <th class="cell">birthday</th>
+            <th class="cell">degree</th>
+            <th class="cell">delete</th>
+        </tr>
+    </thead>
+    <tbody class="body">
+        {{#each users }}
+        <tr id="user_{{this._id}}" class="row">
+            <td class="cell">{{ this.name }}</td>
+            <td class="cell">{{ this.lastname }}</td>
+            <td class="cell">{{ this.email }}</td>
+            <td class="cell">{{ this.age }}</td>
+            <td class="cell">{{ this.gender }}</td>
+            <td class="cell">{{ this.birthday }}</td>
+            <td class="cell">{{ this.degree }}</td>
+            <td class="cell">
+                <a href="/dashboard/user/{{this._id}}/details">view</a>
+            </td>
+            <td class="cell">
+                <a href="/dashboard/user/delete/{{this._id}}" class="delete btn">X</a>
+                {{!-- <button class="delete btn" data-user-id="{{this._id}}">X</button> --}}
+            </td>
+        </tr>
+        {{else}}
+        <tr class="row">
+            <td colspan="7" class="cell row-empty">no users yet</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
