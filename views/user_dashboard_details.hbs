@@ -5,23 +5,32 @@
             <th class="cell">name</th>
             <th class="cell">lastname</th>
             <th class="cell">email</th>
+            <th class="cell">field</th>
             <th class="cell">age</th>
             <th class="cell">gender</th>
             <th class="cell">birthday</th>
             <th class="cell">degree</th>
+            <th class="cell">skills</th>
+            <th class="cell">website</th>
+            <th class="cell">birthday</th>
             <th class="cell">delete</th>
         </tr>
     </thead>
     <tbody class="body">
         {{#each users }}
         <tr id="user_{{this._id}}" class="row">
+            <td class="cell">{{ this.role }}</td>
             <td class="cell">{{ this.name }}</td>
             <td class="cell">{{ this.lastname }}</td>
             <td class="cell">{{ this.email }}</td>
+            <td class="cell">{{ this.field }}</td
             <td class="cell">{{ this.age }}</td>
             <td class="cell">{{ this.gender }}</td>
             <td class="cell">{{ this.birthday }}</td>
             <td class="cell">{{ this.degree }}</td>
+            <td class="cell">{{ this.skills }}</td>
+            <td class="cell">{{ this.website }}</td>
+            <td class="cell">{{ this.birthday }}</td>
             <td class="cell">
                 <a href="/dashboard/user/{{this._id}}/details">view</a>
             </td>

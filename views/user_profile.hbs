@@ -16,11 +16,18 @@ Je suis un etudiant
 
 
 <p>
+    <p>role: {{ user.role }}</p>
     <p>name: {{ user.name }}</p>
     <p>lastname: {{ user.lastname }}</p>
     <p>email: {{ user.email }}</p>
-    <p>age: {{ user.age }}</p>
-    <p>role: {{ user.role }}</p>
+    <p>filed:{{user.field }}</p>
+    <p>age: {{user.age }}</p>
+    <p>gender:{{user.gender }}</p>
+    <p>birthday:{{user.birthday }}</p>
+    <p>degree: {{user.degree }}</p>
+    <p>skills:{{user.skills }}</p>
+    <p>website:{{user.website }}</p>
+    <p>birthday:{{user.birthday }}</p>
 </p>
 
 <a href="/user-profile/edit/{{user._id}}">edit</a>
