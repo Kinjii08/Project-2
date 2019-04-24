@@ -1,15 +1,15 @@
 <div class="signin"></div>
-<form action="./login.hbs" method="POST" id="form">
-  <h2 style="color:white">Log In</h2>
-  <input type="text" name="LogIn" placeholder="Log In"><br><br>
-  <input type="password" name="password" placeholder="Password"><br></br>
-  <a href="./"><input type="button" value="Enter"></a><br>
-  <br>
-  <div id="container">
-
+<h2 style="color:white">Log In</h2>
+<form action="/login" method="POST">
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" name="email">
   </div>
-  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Reset password</a>
-  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Forgot password</a>
-
-
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+  </div>
+  <div>
+    <input type="submit" value="Log In">
+  </div>
 </form>
