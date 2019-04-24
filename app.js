@@ -164,7 +164,7 @@ app.use("/", authRouter);
 const apiUser = require("./routes/api_user");
 app.use("/api/user/", apiUser.router);
 
-const apiSchool = require("./routes/api_school");
+const apiSchool = require("./routes/api_university");
 app.use("/api/school/", apiSchool.router);
 
 const apiCompany = require("./routes/api_company");
