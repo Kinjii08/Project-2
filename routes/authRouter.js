@@ -35,21 +35,24 @@ router.post("/user-profile/edit/:id", (req, res) => {
     .then(err => res.redirect("/user-profile/edit/"));
 });
 
-router.get("/school-profile/:id", (req, res) => {
+router.get("/university-profile/:id", (req, res) => {
   APISchool.getOne(req.params.id)
-    .then(school => res.render("school_profile", { school }))
+    .then(school => res.render("school-profile", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.get("/school-profile/edit/:id", (req, res) => {
+router.get("/university-profile/edit/:id", (req, res) => {
   APISchool.getOne(req.params.id)
     .then(school => res.render("school_edit", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.post("/school-profile/edit/:id", (req, res) => {
+router.post("/university-profile/edit/:id", (req, res) => {
   console.log(req.params.id);
   console.log(req.body); //body contient les data du formulaires school
+  APISchool.updateOne(req.params.id, req.body)
+    .then(() => res.redirect("/university-profile/edit/" + req.params.id))
+    .then(err => res.redirect("/university-profile/edit/"));
 });
 
 module.exports = router;

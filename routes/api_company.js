@@ -7,7 +7,8 @@ const getAll = () => companyModel.find();
 const getOne = id => companyModel.findById(id);
 const getBy = data => companyModel.findOne(data);
 const deleteOne = id => companyModel.findByIdAndDelete(id);
-const updateOne = id => companyModel.findByIdAndUpdate(id);
+const updateOne = (id, data) =>
+  companyModel.findByIdAndUpdate({ _id: id }, { ...data });
 
 router.post("/create", (req, res) => {
   create(req.body)
