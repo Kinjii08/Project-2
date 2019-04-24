@@ -29,24 +29,24 @@ router.get("/user-profile/edit/:id", (req, res) => {
 
 router.post("/user-profile/edit/:id", (req, res) => {
   console.log(req.params.id);
-  console.log(req.body); //body contient les data du formulaires
+  console.log(req.body); //body contient les data du formulaires profile
 });
 
-router.get("/university-profile/:id", (req, res) => {
+router.get("/school-profile/:id", (req, res) => {
   APISchool.getOne(req.params.id)
-    .then(university => res.render("university_profile", { university }))
+    .then(school => res.render("school_profile", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.get("/university-profile/edit/:id", (req, res) => {
+router.get("/school-profile/edit/:id", (req, res) => {
   APISchool.getOne(req.params.id)
-    .then(university => res.render("university_edit", { university }))
+    .then(school => res.render("school_edit", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.post("/university-profile/edit/:id", (req, res) => {
+router.post("/school-profile/edit/:id", (req, res) => {
   console.log(req.params.id);
-  console.log(req.body); //body contient les data du formulaires
+  console.log(req.body); //body contient les data du formulaires school
 });
 
 module.exports = router;

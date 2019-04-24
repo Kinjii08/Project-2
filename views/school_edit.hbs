@@ -1,7 +1,16 @@
 <form action="/school-profile/edit/{{school._id}}" method="post">
+
     <label for="name">edit name</label>
     <input id="name" type="text" name="name" value="{{school.name}}">
     <label for="email">edit email</label>
     <input id="email" type="text" name="email" value="{{school.email}}">
+    <label for="dateOfCreation">edit dateOfCreation</label>
+    <input id="dateOfCreation" type="text" name="dateOfCreation" value="{{school.dateOfCreation}}">
+    <label for="field">edit field</label>
+    <input id="field" type="text" name="field" value="{{school.field}}">
+    <label for="website">edit website</label>
+    <input id="website" type="text" name="website" value="{{school.website}}">
+    <label for="degre">edit degree level</label>
+    <input id="degree" type="text" name="degree" value="{{school.degree}}">
     <button>edit</button>
 </form>

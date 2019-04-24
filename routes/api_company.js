@@ -35,7 +35,7 @@ router.delete("/:id", (req, res) => {
 
 router.patch("/:id", (req, res) => {
   updateOneOne(req.params.id)
-    .then(user => res.send(user))
+    .then(company => res.send(company))
     .catch(dberr => res.send(dberr));
 });
 
