@@ -11,15 +11,36 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #000000;
   position: relative;
-  background: url();
-  background-size: cover;
 }
 
-.test {
-  background-image: url("../images/background-image-index.jpg");
-  position: center;
-  padding: none;
-  height: 1440px;
-  width: 1200px;
-  background-repeat: no-repeat;
+nav {
+  height: 60px;
+  width: 100%;
+  background-color: #343323;
+  position: fixed;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline-flex;
+  float: left;
+}
+
+nav a {
+  display: inline-block;
+  width: 100px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 0;
+  color: #8d8273;
+  transition: 1s;
+}
+
+nav a:hover {
+  color: #6c6c6c;
 }

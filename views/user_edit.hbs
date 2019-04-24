@@ -1,0 +1,8 @@
+je suis edit user
+<form action="/user-profile/edit/{{user._id}}" method="post">
+    <label for="name">edit name</label>
+    <input id="name" type="text" name="name" value="{{user.name}}">
+    <label for="email">edit email</label>
+    <input id="email" type="text" name="email" value="{{user.email}}">
+    <button>edit</button>
+</form>

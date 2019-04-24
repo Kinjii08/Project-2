@@ -48,6 +48,53 @@ app.use(
   })
 );
 
+hbs.registerHelper("compare", function(lvalue, rvalue, options) {
+  if (arguments.length < 3)
+    throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+
+  var operator = options.hash.operator || "==";
+
+  var operators = {
+    "==": function(l, r) {
+      return l == r;
+    },
+    "===": function(l, r) {
+      return l === r;
+    },
+    "!=": function(l, r) {
+      return l != r;
+    },
+    "<": function(l, r) {
+      return l < r;
+    },
+    ">": function(l, r) {
+      return l > r;
+    },
+    "<=": function(l, r) {
+      return l <= r;
+    },
+    ">=": function(l, r) {
+      return l >= r;
+    },
+    typeof: function(l, r) {
+      return typeof l == r;
+    }
+  };
+
+  if (!operators[operator])
+    throw new Error(
+      "Handlerbars Helper 'compare' doesn't know the operator " + operator
+    );
+
+  var result = operators[operator](lvalue, rvalue);
+
+  if (result) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -60,6 +107,9 @@ app.locals.title = "Express - Generated with IronGenerator";
 const index = require("./routes/index");
 app.use("/", index);
 
+const authRouter = require("./routes/authRouter");
+app.use("/", authRouter);
+
 const apiUser = require("./routes/api_user");
 app.use("/api/user/", apiUser.router);
 
@@ -68,9 +118,6 @@ app.use("/api/school/", apiSchool.router);
 
 const apiCompany = require("./routes/api_company");
 app.use("/api/company/", apiCompany.router);
-
-const authRouter = require("./routes/authRouter");
-app.use("/", authRouter);
 
 module.exports = app;
 
