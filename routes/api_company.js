@@ -22,13 +22,13 @@ router.get("/all", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  getOne(req.params, id)
+  getOne(req.params.id)
     .then(company => res.send(company))
     .catch(dberr => res.send(dberr));
 });
 
 router.delete("/:id", (req, res) => {
-  deleteOne(req.params, id)
+  deleteOne(req.params.id)
     .then(company => res.send(company))
     .catch(dberr => res.send(dberr));
 });
