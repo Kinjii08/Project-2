@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const APIUser = require("./api_user");
-const APIuniversity = require("./api_university");
+const APIuniversity = require("./../models/university");
 
 //Passport Login
 router.get("/login", (req, res, next) => {
@@ -12,12 +12,15 @@ router.get("/login", (req, res, next) => {
   res.render("/login");
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 // post te permet de récupérer les infos du formulaire de signup
 router.post("/signup", (req, res) => {
