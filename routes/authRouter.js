@@ -1,12 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const APIUser = require("./api_user");
+<<<<<<< HEAD
+const APISchool = require("./api_university");
+=======
 const APISchool = require("./api_school");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
+>>>>>>> 377eac7c4436f587d3fdd4ada34317b3b2c7bfcb
 
 
 //Passport Login 
@@ -69,44 +73,44 @@ router.get("/signup", (req, res, next) => {
   res.render("signUpForm.hbs");
 });
 
-router.get("/user-profile/:id", (req, res) => {
+router.get("/user_profile/:id", (req, res) => {
   APIUser.getOne(req.params.id)
     .then(user => res.render("user_profile", { user }))
     .catch(dberr => res.send(dberr));
 });
 
-router.get("/user-profile/edit/:id", (req, res) => {
+router.get("/user_profile/edit/:id", (req, res) => {
   APIUser.getOne(req.params.id)
     .then(user => res.render("user_edit", { user }))
     .catch(dberr => res.send(dberr));
 });
 
-router.post("/user-profile/edit/:id", (req, res) => {
+router.post("/user_profile/edit/:id", (req, res) => {
   console.log(req.params.id);
   console.log(req.body); //body contient les data du formulaires profile
   APIUser.updateOne(req.params.id, req.body)
-    .then(() => res.redirect("/user-profile/edit/" + req.params.id))
-    .then(err => res.redirect("/user-profile/edit/"));
+    .then(() => res.redirect("/user_profile/edit/" + req.params.id))
+    .then(err => res.redirect("/user_profile/edit/"));
 });
 
 router.get("/university-profile/:id", (req, res) => {
   APISchool.getOne(req.params.id)
-    .then(school => res.render("school-profile", { school }))
+    .then(school => res.render("university_profile", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.get("/university-profile/edit/:id", (req, res) => {
+router.get("/university_profile/edit/:id", (req, res) => {
   APISchool.getOne(req.params.id)
-    .then(school => res.render("school_edit", { school }))
+    .then(school => res.render("university_edit", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.post("/university-profile/edit/:id", (req, res) => {
+router.post("/university_profile/edit/:id", (req, res) => {
   console.log(req.params.id);
   console.log(req.body); //body contient les data du formulaires school
   APISchool.updateOne(req.params.id, req.body)
-    .then(() => res.redirect("/university-profile/edit/" + req.params.id))
-    .then(err => res.redirect("/university-profile/edit/"));
+    .then(() => res.redirect("/university_profile/edit/" + req.params.id))
+    .then(err => res.redirect("/university_profile/edit/"));
 });
 
 router.get("/logout", (req, res) => {

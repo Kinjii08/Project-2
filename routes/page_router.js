@@ -29,10 +29,10 @@ router.get("/user_profile", (req, res) => {
   res.render("user_profile.hbs");
 });
 
-router.get("/school_edit", (req, res) => {
-  res.render("school_edit.hbs");
+router.get("/university_edit", (req, res) => {
+  res.render("university_edit.hbs");
 });
 
-router.get("/school_profile", (req, res) => {
-  res.render("school_profile.hbs");
+router.get("/university_profile", (req, res) => {
+  res.render("university_profile.hbs");
 });
