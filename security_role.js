@@ -1,22 +1,39 @@
+const express = require("express");
+const router = new express.Router();
+const userModel = require("./models/user");
+const schoolModel = require("./models/university");
+const schoolCompany = require("./models/company");
+
 const checkStudent = checkRoles("student");
 const checkPro = checkRoles("pro");
 const checkUniversity = checkRoles("university");
 
-router.get("/private", checkRoles("student"), (req, res) => {
-  res.render("private", { user: req.user });
-});
+router.get(
+  "/private",
+  checkRoles("student"),
+  ensureAuthenticated,
+  (req, res, next) => {
+    res.render("private", { user: req.user });
+  }
+);
 
-router.get("/private", checkRoles("pro"), (req, res) => {
-  res.render("private", { user: req.user });
-});
+router.get(
+  "/private",
+  checkRoles("pro"),
+  ensureAuthenticated,
+  (req, res, next) => {
+    res.render("private", { user: req.user });
+  }
+);
 
-router.get("/private", checkRoles("university"), (req, res) => {
-  res.render("private", { user: req.user });
-});
-
-router.get("/private", ensureAuthenticated, (req, res) => {
-  res.render("private", { user: req.user });
-});
+router.get(
+  "/private",
+  checkRoles("university"),
+  ensureAuthenticated,
+  (req, res, next) => {
+    res.render("private", { user: req.user });
+  }
+);
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -24,6 +41,33 @@ function ensureAuthenticated(req, res, next) {
   } else {
     res.redirect("/login");
   }
+
+  const userModel = mongoose.Schema({
+    /// ...
+    role: {
+      type: String,
+      enum: ["student", "university", "pro"],
+      default: "student"
+    }
+  });
+
+  const schoolModel = mongoose.Schema({
+    /// ...
+    role: {
+      type: String,
+      enum: ["student", "university", "pro"],
+      default: "student"
+    }
+  });
+
+  const companyModel = mongoose.Schema({
+    /// ...
+    role: {
+      type: String,
+      enum: ["student", "university", "pro"],
+      default: "student"
+    }
+  });
 
   const userModel = Schema({
     name: String,
@@ -70,33 +114,6 @@ function ensureAuthenticated(req, res, next) {
 
       res.render("student/index", { student: myRooms });
     });
-  });
-
-  const userModel = mongoose.Schema({
-    /// ...
-    role: {
-      type: String,
-      enum: ["student", "university", "pro"],
-      default: "student"
-    }
-  });
-
-  const schoolModel = mongoose.Schema({
-    /// ...
-    role: {
-      type: String,
-      enum: ["student", "university", "pro"],
-      default: "student"
-    }
-  });
-
-  const companyModel = mongoose.Schema({
-    /// ...
-    role: {
-      type: String,
-      enum: ["student", "university", "pro"],
-      default: "student"
-    }
   });
 
   function checkRoles(role) {
