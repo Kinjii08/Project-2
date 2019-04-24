@@ -1,4 +1,4 @@
-const companyModel = require("./../models/school");
+const companyModel = require("../models/university");
 const express = require("express");
 const router = new express.Router();
 
