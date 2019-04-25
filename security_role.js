@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const router = new express.Router();
 const userModel = require("./models/user");
 const schoolModel = require("./models/university");
@@ -138,3 +138,4 @@ function ensureAuthenticated(req, res, next) {
     res.render("private", { user: req.user });
   });
 }
+*/
