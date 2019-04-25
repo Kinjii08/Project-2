@@ -18,59 +18,28 @@ title {
   overflow: hidden;
 }
 
-#flaticon1 {
-  background-image: url(./../images/flaticon/university-solid.svg);
-  background-repeat: no-repeat;
-  border: 3px solid;
- /* float: left;
-  width: 300px;
-  
-  padding: 10px; */ 
+.flaticon{
+  width: 200px;
+  height: 150px;
+  border: 2px solid;
 }
 
-#flaticon2 {
-  background-image: url(./../images/flaticon/handshake-solid.svg);
-  background-repeat: no-repeat;
-  float: center;
-  width: 300px;
-  border: 3px solid;
-  padding: 10px; 
+.section_flat{
+  display: flex;
+    flex-direction: row;
+    flex-wrap: inherit;
+    text-align: center;
+    padding: 30px;
 }
 
-#flaticon3 {
-  background-image: url(./../images/flaticon/user-graduate-solid.svg);
-  background-repeat: no-repeat;
-  float: right;
-  width: 300px;
-  border: 3px solid;
-  padding: 10px; 
-}
-
-.container1 {
+.container_box {
   max-width: 1200px;
   text-align: center;
   margin: 0 auto;
   padding: 0 3rem;
+
 }
 
-.container2 {
-  max-width: 1200px;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 3rem;
-}
-.container3 {
-  max-width: 1200px;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 3rem;
-}
-.container4 {
-  max-width: 1200px;
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 3rem;
-}
 
 h1,
 h2,
