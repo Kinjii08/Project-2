@@ -238,3 +238,15 @@ footer span {
   text-decoration: none;
   border-radius: 50%;
 }
+
+
+.contactus {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  max-width: 540px;
+}
+
+.formbtn {
+  max-width: 120px;
+}
