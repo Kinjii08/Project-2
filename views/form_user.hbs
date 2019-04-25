@@ -4,60 +4,70 @@
   }
 </style>
 
-<form id="form"></form>
-<input type="text" name="Firstname" placeholder="Firstname">
-<input type="text" name="Lastname" placeholder="Lastname">
-<br></br><br>
+<h1 class="title">Create an account</h1>
 
-<input type="age" name="Age" placeholder="Age">
-<br></br><br>
-
-<input type="text" name="Gender" placeholder="Gender">
-<br></br><br>
-
-<input type="email" name="Email" placeholder="Email">
-<br></br><br>
-
-<div id="register_user_role">
-  <label for="professional">Professional</label>
-  <input class="role-radio" type="radio" name="user_role" value="professional" id="professional">
-  <label for="teacher">Teacher</label>
-  <input class="role-radio" type="radio" name="user_role" value="teacher" id="teacher">
-  <label for="student">Student</label>
-  <input class="role-radio" type="radio" name="user_role" value="student" id="student" checked>
-</div>
-
-<div id="role_professional" class="role-block is-hidden">
-  <input type="url" name="website" placeholder="website">
-  <input type="text" name="companyName" placeholder="CompanyName">
-  <input type="tel" name="companyNumber" placeholder="companyNumber" id="number">
-</div>
-
-<div id="role_teacher" class="role-block is-hidden">
-  je suis le role des teachers
-</div>
-
-<div id="role_student" class="role-block">
-  <input type="url" name="webSite" placeholder="webSite">
-  <input type="text" name="schoolName" placeholder="schoolName">
-
-  <input type="text" name="id" placeholder="student_Id" id="number">
-</div>
+<p class="account-message">
+  Are you a pro ???
+  <a href="/signup-pro">Register as a professional</a>
+</p>
 
 
-{{!-- 
-<div class="signin"></div>
-<form action="./login.hbs" method="POST" id="form">
-  <h2 style="color:white">Log In</h2>
-  <input type="text" name="username" placeholder="Choose your username"><br><br>
-  <input type="password" name="pass" placeholder="Choose your password"><br></br>
-  <a href="./"><input type="button" value="Enter"></a><br>
-  <br>
-  <div id="container">
+<p class="account-message">
+  Do you already have an account?
+  <a href="/login">Login</a>
+</p>
+
+{{#if message}}
+<div class="error-message">{{ message }}</div>
+{{/if}}
+
+<form class="signup" action="/signup" method="POST" id="form-container">
+  <input type="text" name="Firstname" placeholder="Firstname" value="toto">
+  <input type="text" name="Lastname" placeholder="Lastname" value="titi">
+  <br></br><br>
+
+  <input type="age" name="Age" placeholder="Age" value="22">
+  <br></br><br>
+
+  <div id="user_gender">
+    <label for="teacher">Male</label>
+    <input type="radio" name="gender" value="Male" checked>
+    <label for="student">Female</label>
+    <input type="radio" name="gender" value="Female">
+  </div>
+
+  <input type="email" name="Email" placeholder="Email" value="gui@gui.com">
+  <br></br><br>
+
+  <div id="register_user_role">
+    <label for="teacher">Teacher</label>
+    <input class="role-radio" type="radio" name="user_role" value="Teacher" id="teacher">
+    <label for="student">Student</label>
+    <input class="role-radio" type="radio" name="user_role" value="Student" id="student" checked>
+  </div>
+
+  <div id="role_Teacher" class="role-block is-hidden">
 
   </div>
-  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Reset password</a>
-  <a href="#" style=" margin-right:0px font-size:13px; font-family:Tahoma,Geneva, sans-serif;">Forgot password</a>
-  </div><br><br><br><br><br><br>
 
-</form> --}}
+
+
+  <div id="role_Student" class="role-block">
+    <input type="url" name="website" placeholder="webSite">
+    <label for="user_university">university name</label>
+    <select name="university" id="user_university">
+      {{#each universities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+    <label for="user_degree">your degree</label>
+    <select name="degree" id="user_degree">
+      {{#each degrees}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <button>Create account</button>
+
+</form>

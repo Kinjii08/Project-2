@@ -1,7 +1,203 @@
 body {
-  background: grey;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  margin: 0;
+  background: #343233;
+}
+title {
+  text-align: center;
+  position: absolute;
 }
 
-.cell {
-  color: dodgerblue;
+#head {
+  background-image: url(./../images/cole-keister-291568-unsplash.jpg);
+  width: 500px;
+  height: 455px;
+}
+
+.container {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 54px;
+  color: #ffd152;
+}
+
+h2 {
+  font-size: 42px;
+  color: #8d8273;
+}
+
+h3 {
+  font-size: 28px;
+  color: #8d8273;
+}
+
+h4 {
+  font-size: 20px;
+  color: #8d8273;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+p {
+  margin: 20px 0;
+  color: #8d8273;
+  line-height: 24px;
+}
+
+.menu.main {
+  height: 60px;
+  width: 100%;
+  background-color: #343323;
+  position: fixed;
+  z-index: 10;
+}
+
+.menu.main ul {
+  padding: 0;
+  margin: 0;
+}
+
+.menu.main li {
+  display: inline-flex;
+  float: left;
+}
+
+.menu.main a {
+  display: inline-block;
+  width: 100px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 0;
+  color: #8d8273;
+  transition: 1s;
+}
+
+.menu.main a:hover {
+  color: #6c6c6c;
+}
+
+#main {
+  padding-top: 40px;
+  position: relative;
+  top: 65px; 
+}
+
+/******* picture on the right side ! *****
+
+
+.gallery-content {
+  display: grid;
+  grid-gap: 80px;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: left;
+}
+
+@media screen and (max-width: 500px) {
+  .gallery-content {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: left;
+  }
+}
+*/
+
+/* Subscribe part !!! */
+
+#subscribe {
+  background: #342333;
+  padding: 8em 0;
+}
+
+#subscribe h2 {
+  color: #8d8273;
+}
+
+#subscribe input {
+  width: 80%;
+  margin: 2em 0;
+  background: none;
+  border: 1px solid #8d8273;
+  padding: 20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-weight: 400;
+  color: rgb(211, 165, 100);
+}
+
+#subscribe input:focus {
+  border: none;
+  outline: none;
+  border: 2px solid #8d8273;
+}
+
+input::placeholder {
+  color: #8d8273;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+footer {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1em 0;
+  background: #282627;
+}
+
+footer span {
+  color: #8d8273;
+  font-weight: 800;
+}
+
+
+/* FooterSocialMedia */
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
 }

@@ -14,38 +14,38 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-
-
-
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
 });
 
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
-    if (err) { return cb(err); }
+    if (err) {
+      return cb(err);
+    }
     cb(null, user);
   });
 });
 
-passport.use(new LocalStrategy((email, password, next) => {
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(null, false, { message: "Incorrect email" });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
-    }
+passport.use(
+  new LocalStrategy((email, password, next) => {
+    User.findOne({ email }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return next(null, false, { message: "Incorrect email" });
+      }
+      if (!bcrypt.compareSync(password, user.password)) {
+        return next(null, false, { message: "Incorrect password" });
+      }
 
-    return next(null, user);
-  });
-}));
+      return next(null, user);
+    });
+  })
+);
 
 // custom app routes
-
 
 mongoose
   .connect("mongodb://localhost/awesome-project", { useNewUrlParser: true })
@@ -65,15 +65,15 @@ const debug = require("debug")(
 
 const app = express();
 
-
 // Login passport config
 
-
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: "our-passport-local-strategy-app",
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -164,11 +164,14 @@ app.use("/", authRouter);
 const apiUser = require("./routes/api_user");
 app.use("/api/user/", apiUser.router);
 
-const apiSchool = require("./routes/api_university");
-app.use("/api/school/", apiSchool.router);
+const apiUniversity = require("./routes/api_university");
+app.use("/api/university/", apiUniversity.router);
 
 const apiCompany = require("./routes/api_company");
 app.use("/api/company/", apiCompany.router);
+
+const apiDegrees = require("./routes/api_degrees");
+app.use("/api/degrees/", apiDegrees.router);
 
 // app.use("/user_dashboard_details/", dashboardUserRouter);
 // app.use("/school_dashboard_details/", dashboardProductRouter);

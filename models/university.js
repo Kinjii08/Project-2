@@ -6,11 +6,6 @@ const universitySchema = new Schema({
     required: true
   },
 
-  DateOfCreation: {
-    type: String,
-    required: true
-  },
-
   email: {
     type: String,
     required: true
@@ -22,17 +17,24 @@ const universitySchema = new Schema({
 
   field: {
     type: String,
-    enum: ["Art", "Business", "Web developement"],
+    enum: ["Art", "Business", "Web developement", "IT"],
     required: true
   },
 
   degrees: {
     type: String,
-    enum: ["High School Degree", "Bachelor", "Master", "MBA", "PhD"],
+    enum: [
+      "High School Degree",
+      "Certification",
+      "Bachelor",
+      "Master",
+      "MBA",
+      "PhD"
+    ],
     required: true
   }
 });
 
-const universityModel = mongoose.model("School", universitySchema);
+const universityModel = mongoose.model("University", universitySchema);
 
 module.exports = universityModel;
