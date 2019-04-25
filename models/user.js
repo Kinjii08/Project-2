@@ -33,9 +33,8 @@ const userSchema = new Schema(
     website: String,
 
     degree: {
-      type: String,
-      enum: ["High School Degree", "Bachelor", "Master", "MBA", "PhD"],
-      required: true
+      type: Schema.Types.ObjectId,
+      ref: "Degrees"
     },
 
     university: {
