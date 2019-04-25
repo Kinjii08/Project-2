@@ -10,4 +10,8 @@ router.get("/about", (req, res, next) => {
   res.render("about.hbs");
 });
 
+router.get("/contact", (req, res, next) => {
+  res.render("contact.hbs");
+});
+
 module.exports = router;
