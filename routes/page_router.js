@@ -25,10 +25,6 @@ router.get("/user_edit", (req, res) => {
   res.render("user_edit.hbs");
 });
 
-router.get("/user_profile", (req, res) => {
-  res.render("user_profile.hbs");
-});
-
 router.get("/university_edit", (req, res) => {
   res.render("university_edit.hbs");
 });

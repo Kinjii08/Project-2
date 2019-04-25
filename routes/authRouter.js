@@ -5,15 +5,46 @@ const APIUser = require("./api_user");
 const APIuniversity = require("./api_university");
 const APIdegrees = require("./api_degrees");
 const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const secure = require("connect-ensure-login");
 const bcryptSalt = 10;
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  APIUser.getBy({ id })
+    .then(user => cb(null, user))
+    .catch(err => cb(err));
+});
+
+passport.use(
+  new LocalStrategy({ usernameField: "email" }, (email, password, next) => {
+    APIUser.getBy({ email })
+      .then(user => {
+        if (!user) {
+          console.log("user mail not found");
+          next(null, false, { message: "Incorrect username" });
+          return;
+        }
+        if (!bcrypt.compareSync(password, user.password)) {
+          console.log("Incorrect password");
+          next(null, false, { message: "Incorrect password" });
+          return;
+        }
+        console.log("all good", user);
+        next(null, user);
+      })
+      .catch(err => {
+        next(err);
+      });
+  })
+);
 
 //Passport Login
 router.get("/login", (req, res, next) => {
   res.render("login.hbs");
-});
-
-router.get("/login", (req, res, next) => {
-  res.render("/login");
 });
 
 router.post(
@@ -34,15 +65,16 @@ router.post("/signup", (req, res, next) => {
   const gender = req.body.gender;
   const role = req.body.role;
   const website = req.body.website;
-
+  const university = req.body.university;
   const email = req.body.email;
+  const degree = req.body.degree;
   const password = req.body.password;
 
   if (email === "" || password === "") {
     res.render("form_user", { message: "Indicate email and password" });
     return;
   }
-  console.log("ok form field");
+
   APIUser.getBy({ email })
     .then(user => {
       console.log(user);
@@ -68,7 +100,7 @@ router.post("/signup", (req, res, next) => {
         password: hashPass
       })
         .then(dbRes => {
-          res.render("form_user", { message: "oki" });
+          res.redirect("login");
         })
         .catch(dbErr => {
           console.log(dbErr);
@@ -95,10 +127,10 @@ router.get("/signup-pro", (req, res, next) => {
   res.render("form_pro.hbs");
 });
 
-router.get("/user_profile/:id", (req, res) => {
-  APIUser.getOne(req.params.id)
-    .then(user => res.render("user_profile", { user }))
-    .catch(dberr => res.send(dberr));
+// router.get("/user_profile", secure.ensureLoggedIn(), (req, res) => {
+router.get("/user_profile", (req, res) => {
+  console.log("voilou", req.user);
+  res.render("user_profile", req.user);
 });
 
 router.get("/user_profile/edit/:id", (req, res) => {
@@ -135,7 +167,7 @@ router.post("/university_profile/edit/:id", (req, res) => {
     .then(err => res.redirect("/university_profile/edit/"));
 });
 
-router.get("/logout", (req, res) => {
+router.get("/signout", (req, res) => {
   req.logout();
   res.redirect("/login");
 });
