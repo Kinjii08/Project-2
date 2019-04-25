@@ -149,13 +149,13 @@ router.post("/user_profile/edit/:id", (req, res) => {
 
 router.get("/university-profile/:id", (req, res) => {
   APIuniversity.getOne(req.params.id)
-    .then(school => res.render("university_profile", { school }))
+    .then(school => res.render("school_profile", { school }))
     .catch(dberr => res.send(dberr));
 });
 
-router.get("/university_profile/edit/:id", (req, res) => {
+router.get("/school_profile/edit/:id", (req, res) => {
   APIuniversity.getOne(req.params.id)
-    .then(school => res.render("university_edit", { school }))
+    .then(school => res.render("school_edit", { school }))
     .catch(dberr => res.send(dberr));
 });
 
@@ -163,8 +163,8 @@ router.post("/university_profile/edit/:id", (req, res) => {
   console.log(req.params.id);
   console.log(req.body); //body contient les data du formulaires school
   APIuniversity.updateOne(req.params.id, req.body)
-    .then(() => res.redirect("/university_profile/edit/" + req.params.id))
-    .then(err => res.redirect("/university_profile/edit/"));
+    .then(() => res.redirect("/school_profile/edit/" + req.params.id))
+    .then(err => res.redirect("/school_profile/edit/"));
 });
 
 router.get("/signout", (req, res) => {
