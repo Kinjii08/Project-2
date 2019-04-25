@@ -32,3 +32,5 @@ router.get("/university_edit", (req, res) => {
 router.get("/university_profile", (req, res) => {
   res.render("university_profile.hbs");
 });
+
+module.exports = router;
