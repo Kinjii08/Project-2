@@ -18,7 +18,7 @@ router.post("/create", (req, res) => {
 
 router.get("/all", (req, res) => {
   getAll()
-    .then(university => res.send(university))
+    .then(universities => res.send(universities))
     .catch(dberr => res.send(dberr));
 });
 

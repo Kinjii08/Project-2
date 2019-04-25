@@ -1,12 +1,11 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 const APIUser = require("./api_user");
-<<<<<<< HEAD
-const APIuniversity = require("./../models/university");
-=======
-const APIuniversity = require("../models/university");
+const APIuniversity = require("./api_university");
+const APIdegrees = require("./api_degrees");
 const passport = require("passport");
->>>>>>> 7e27453ff3e1f77221e1cbad57ea34850ed909fb
+const bcryptSalt = 10;
 
 //Passport Login
 router.get("/login", (req, res, next) => {
@@ -20,7 +19,7 @@ router.get("/login", (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/user_profile",
     failureRedirect: "/login",
     failureFlash: true,
     passReqToCallback: true
@@ -28,37 +27,38 @@ router.post(
 );
 
 // post te permet de récupérer les infos du formulaire de signup
-router.post("/signup", (req, res) => {
+router.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  if (username === "" || password === "") {
-    res.render("/signup", { message: "Indicate username and password" });
+  if (email === "" || password === "") {
+    res.render("signUpForm", { message: "Indicate email and password" });
     return;
   }
-
-  User.findOne({ username })
+  console.log("ok form field");
+  APIUser.getBy({ email })
     .then(user => {
+      console.log(user);
+
       if (user !== null) {
-        res.render("/signup", { message: "The username already exists" });
+        res.render("signUpForm", { message: "The username already exists" });
         return;
       }
 
       const salt = bcrypt.genSaltSync(bcryptSalt);
       const hashPass = bcrypt.hashSync(password, salt);
 
-      const newUser = new User({
+      APIUser.create({
         email,
         password: hashPass
-      });
-
-      newUser.save(err => {
-        if (err) {
-          res.render("/signup", { message: "Something went wrong" });
-        } else {
-          res.redirect("/");
-        }
-      });
+      })
+        .then(dbRes => {
+          res.render("signUpForm", { message: "oki" });
+        })
+        .catch(dbErr => {
+          console.log(dbErr);
+          res.render("signUpForm", { message: "Something went wrong" });
+        });
     })
     .catch(error => {
       next(error);
@@ -67,7 +67,17 @@ router.post("/signup", (req, res) => {
 
 // get te permet de servir les pages
 router.get("/signup", (req, res, next) => {
-  res.render("signUpForm.hbs");
+  APIuniversity.getAll().then(universities => {
+    console.log("universities =", universities);
+    APIdegrees.getAll().then(degrees => {
+      console.log("degrees =", degrees);
+      res.render("form_user.hbs", { universities, degrees });
+    });
+  });
+});
+
+router.get("/signup-pro", (req, res, next) => {
+  res.render("form_pro.hbs");
 });
 
 router.get("/user_profile/:id", (req, res) => {

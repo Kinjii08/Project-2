@@ -11,7 +11,6 @@ document.addEventListener(
 );
 
 function chooseUserRole() {
-  console.log("ici");
   const boxes = document.querySelectorAll(".role-radio");
 
   function changeRoleDisplay(evt) {
