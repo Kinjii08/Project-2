@@ -14,7 +14,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup ", (req, res) => {
-  res.send("signUpForm.hbs");
+  res.send("form_user.hbs");
 });
 
 router.get("/about", (req, res) => {

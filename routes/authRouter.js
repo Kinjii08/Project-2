@@ -28,11 +28,18 @@ router.post(
 
 // post te permet de récupérer les infos du formulaire de signup
 router.post("/signup", (req, res, next) => {
+  const name = req.body.name;
+  const lastname = req.body.lastname;
+  const age = req.body.age;
+  const gender = req.body.gender;
+  const role = req.body.role;
+  const website = req.body.website;
+
   const email = req.body.email;
   const password = req.body.password;
 
   if (email === "" || password === "") {
-    res.render("signUpForm", { message: "Indicate email and password" });
+    res.render("form_user", { message: "Indicate email and password" });
     return;
   }
   console.log("ok form field");
@@ -41,7 +48,7 @@ router.post("/signup", (req, res, next) => {
       console.log(user);
 
       if (user !== null) {
-        res.render("signUpForm", { message: "The username already exists" });
+        res.render("form_user", { message: "The username already exists" });
         return;
       }
 
@@ -49,15 +56,23 @@ router.post("/signup", (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
 
       APIUser.create({
+        name,
+        lastname,
+        age,
+        gender,
         email,
+        role,
+        website,
+        university,
+        degree,
         password: hashPass
       })
         .then(dbRes => {
-          res.render("signUpForm", { message: "oki" });
+          res.render("form_user", { message: "oki" });
         })
         .catch(dbErr => {
           console.log(dbErr);
-          res.render("signUpForm", { message: "Something went wrong" });
+          res.render("form_user", { message: "Something went wrong" });
         });
     })
     .catch(error => {

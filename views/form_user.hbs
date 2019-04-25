@@ -22,12 +22,13 @@
 {{/if}}
 
 <form class="signup" action="/signup" method="POST" id="form-container">
-  <input type="text" name="Firstname" placeholder="Firstname" value="toto">
-  <input type="text" name="Lastname" placeholder="Lastname" value="titi">
+  <input type="text" name="name" placeholder="name" value="toto">
+  <input type="text" name="lastname" placeholder="lastname" value="titi">
   <br></br><br>
 
   <input type="age" name="Age" placeholder="Age" value="22">
   <br></br><br>
+
 
   <div id="user_gender">
     <label for="teacher">Male</label>
@@ -35,21 +36,29 @@
     <label for="student">Female</label>
     <input type="radio" name="gender" value="Female">
   </div>
-
-  <input type="email" name="Email" placeholder="Email" value="gui@gui.com">
   <br></br><br>
+
+  <input type="email" name="email" placeholder="Email" value="gui@gui.com">
+  <br></br><br>
+
+
+
+  <label for="password"></label>
+  <input id="password" type="password" name="password" placeholder="Your password" value="1234">
+  <br></br><br>
+
+
 
   <div id="register_user_role">
     <label for="teacher">Teacher</label>
     <input class="role-radio" type="radio" name="user_role" value="Teacher" id="teacher">
     <label for="student">Student</label>
     <input class="role-radio" type="radio" name="user_role" value="Student" id="student" checked>
-  </div>
+  </div><br></br><br>
 
   <div id="role_Teacher" class="role-block is-hidden">
 
   </div>
-
 
 
   <div id="role_Student" class="role-block">
@@ -68,6 +77,6 @@
     </select>
   </div>
 
-  <button>Create account</button>
 
+  <button>Create Account</button>
 </form>

@@ -19,11 +19,6 @@ const userSchema = new Schema(
       required: true
     },
 
-    field: {
-      type: String,
-      required: true
-    },
-
     gender: {
       type: String,
       enum: ["Male", "Female"],
@@ -50,7 +45,7 @@ const userSchema = new Schema(
 
     role: {
       type: String,
-      enum: ["Student", "Teacher", "Pro"],
+      enum: ["Student", "Teacher"],
       required: true,
       default: "Student"
     }

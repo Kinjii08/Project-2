@@ -5,16 +5,67 @@ body {
 }
 title {
   text-align: center;
-  position: absolute;
+  position: static;
 }
 
 #head {
-  background-image: url(./../images/cole-keister-291568-unsplash.jpg);
-  width: 500px;
-  height: 455px;
+  display: flex;
+  background-image: url(./../images/vasily-koloda-620886-unsplash.jpg);
+  max-width: 1500px;
+  max-height: 2000px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
-.container {
+#flaticon1 {
+  background-image: url(./../images/flaticon/university-solid.svg);
+  background-repeat: no-repeat;
+  border: 3px solid;
+ /* float: left;
+  width: 300px;
+  
+  padding: 10px; */ 
+}
+
+#flaticon2 {
+  background-image: url(./../images/flaticon/handshake-solid.svg);
+  background-repeat: no-repeat;
+  float: center;
+  width: 300px;
+  border: 3px solid;
+  padding: 10px; 
+}
+
+#flaticon3 {
+  background-image: url(./../images/flaticon/user-graduate-solid.svg);
+  background-repeat: no-repeat;
+  float: right;
+  width: 300px;
+  border: 3px solid;
+  padding: 10px; 
+}
+
+.container1 {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.container2 {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.container3 {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.container4 {
   max-width: 1200px;
   text-align: center;
   margin: 0 auto;
