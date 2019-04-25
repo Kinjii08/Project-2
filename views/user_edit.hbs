@@ -1,17 +1,64 @@
 <form action="/user_profile/edit/{{user._id}}" method="post">
-    <label for="name"></label>
-    <input id="name" type="text" name="name" placeholder="name" value="{{user.name}}">
-    <label for="email"></label>
-    <input id="email" type="text" name="email" placeholder="email" value="{{user.email}}">
-    <label for="age"></label>
-    <input id="age" type="number" name="age" placeholder="age" value="{{user.age}}">
-    <label for="field"></label>
-    <input id="field" type="text" name="field" placeholder="field" value="{{user.field}}">
-    <label for="skills"></label>
-    <input id="skills" type="text" name="skills" placeholder="skills" value="{{user.skills}}">
-    <label for="website"></label>
-    <input id="website" type="text" name="website" placeholder="website" value="{{user.website}}">
-    <label for="birthday"></label>
-    <input id="birthday" type="text" name="birthday" placeholder="birthday" value="{{user.birthday}}">
-    <button>edit</button>
+
+
+    <section class="user_edit">
+        <p>
+            <label for="role"></label>
+            <input id="name" type="text" name="role" placeholder="role" value="{{user.role}}">
+        </p>
+
+        <p>
+            <label for="name"></label>
+            <input id="name" type="text" name="name" placeholder="name" value="{{user.name}}">
+        </p>
+
+
+        <p>
+            <label for="lastname"></label>
+            <input id="lastname" type="text" name="lastname" placeholder="lastname" value="{{user.lastname}}">
+        </p>
+
+        <p>
+            <label for="email"></label>
+            <input id="email" type="email" name="email" placeholder="email" value="{{user.email}}">
+        </p>
+
+        <p>
+            <label for="field"></label>
+            <input id="field" type="text" name="field" placeholder="field" value="{{user.field}}">
+        </p>
+
+        <p>
+            <label for="age"></label>
+            <input id="age" type="age" name="age" placeholder="age" value="{{user.age}}">
+        </p>
+
+        <p>
+            <label for="gender"></label>
+            <input id="gender" type="gender" name="gender" placeholder="gender" value="{{user.gender}}">
+        </p>
+
+        <p>
+            <label for="birthday"></label>
+            <input id="birthday" type="birthday" name="birthday" placeholder="birthday" value="{{user.birthday}}">
+        </p>
+
+        <p>
+            <label for="degree"></label>
+            <input id="degree" type="degree" name="degree" placeholder="degree" value="{{user.degree}}">
+        </p>
+
+        <p>
+            <label for="skills"></label>
+            <input id="skills" type="skills" name="skills" placeholder="skills" value="{{user.skills}}">
+        </p>
+
+        <p>
+            <label for="website"></label>
+            <input id="website" type="website" name="website" placeholder="website" value="{{user.website}}">
+        </p>
+
+        <button>edit</button>
+
+    </section>
 </form>
