@@ -32,13 +32,15 @@ html {
   width: 200px;
   height: 150px;
   border: 2px solid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 h1,
 h2,
 h3 {
   font-weight: 300;
-  margin-top: 0px;
+  margin-top: w0px;
   margin-bottom: 8px;
 }
 
@@ -189,6 +191,29 @@ nav a#toggle-btn {
   zoom: 1;
 }
 /*landing page content */
+.section-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.w33 {
+  width: calc(100% / 3);
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+}
+
+.section-center {
+  justify-content: center;
+}
 
 .section-hero {
   width: 100%;
