@@ -114,11 +114,17 @@ router.post("/signup", (req, res, next) => {
 
 // get te permet de servir les pages
 router.get("/signup", (req, res, next) => {
+  Promise.all([APIuniversity.getAll(), APIdegrees.getAll()]).then(results => {
+    console.log(results)
+    const universities = results[0];
+    const degrees = results[1];
+    res.render("form_user.hbs", { universities, degrees });
+  })
   // APIuniversity.getAll().then(universities => {
   //   console.log("universities =", universities);
   //   APIdegrees.getAll().then(degrees => {
   //     console.log("degrees =", degrees);
-      res.render("form_user.hbs", { universities: [], degrees: [] });
+  
   //   });
   // });
 });
