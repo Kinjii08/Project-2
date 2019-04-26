@@ -383,3 +383,33 @@ footer span {
 .formbtn {
   max-width: 120px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.universityList {
+  top:50%;
+  text-align: left;
+  cursor: pointer;
+  padding : 1px;
+}
+
+
+
+.askforloginU {width : 150px;
+  height : 10px;
+  border-radius: 10px;
+  background-color: #343233;
+
+}
