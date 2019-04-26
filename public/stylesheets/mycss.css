@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  height: 100%;
   box-sizing: border-box;
 }
 
@@ -78,19 +77,6 @@ a {
   transition: background-color 0.3 ease-in, color 0.3s ease-in;
 }
 
-/*
-@media only screen and (max-width: 920px) {
-  .inner-container {
-    margin-top: 100px;
-  }
-}
-
-@media only screen and (max-width: 540px) {
-  .inner-container {
-    margin-top: 150px;
-  }
-}
-*/
 h1 {
   font-size: 5em;
 }
@@ -99,11 +85,12 @@ h2 {
   font-size: 1.4em;
 }
 
+section > * {
+  position: relative;
+  z-index: 2;
+}
 
-  section > * {
-    position: relative;
-    z-index: 2;
-  }
+/
   section:nth-of-type(1) {
     background-image: url("./../images/redcharlie-739534-unsplash.jpg");
     background-position: center;
@@ -139,6 +126,7 @@ h2 {
     z-index: 1;
   }
 }
+*/
 
 .title_Home {
   text-align: center;
@@ -212,7 +200,7 @@ p {
   line-height: 24px;
 }
 
-.menu.main {
+.menu {
   height: 60px;
   width: 100%;
   background-color: #343323;
@@ -220,17 +208,17 @@ p {
   font-weight: bold;
 }
 
-.menu.main ul {
+.menu ul {
   padding: 0;
   margin: 0;
 }
 
-.menu.main li {
+.menu li {
   display: inline-flex;
   float: left;
 }
 
-.menu.main a {
+.menu a {
   display: inline-block;
   width: 100px;
   font-weight: bold;
@@ -241,7 +229,7 @@ p {
   transition: 1s;
 }
 
-.menu.main a:hover {
+.menu a:hover {
   color: #6c6c6c;
   font: bold;
 }
@@ -384,32 +372,16 @@ footer span {
   max-width: 120px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .universityList {
-  top:50%;
+  top: 50%;
   text-align: left;
   cursor: pointer;
-  padding : 1px;
+  padding: 1px;
 }
 
-
-
-.askforloginU {width : 150px;
-  height : 10px;
+.askforloginU {
+  width: 150px;
+  height: 10px;
   border-radius: 10px;
   background-color: #343233;
-
 }
