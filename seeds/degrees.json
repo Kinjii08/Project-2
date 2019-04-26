@@ -1,0 +1,6 @@
+{"_id":{"$oid":"5cc18b4fce9a1045381a8c61"},"name":"High School Degree","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cc18b61ce9a1045381a8c62"},"name":"Certification","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cc18b66ce9a1045381a8c63"},"name":"Bachelor","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cc18b6bce9a1045381a8c64"},"name":"Master","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cc18b70ce9a1045381a8c65"},"name":"MBA","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cc18b75ce9a1045381a8c66"},"name":"PhD","__v":{"$numberInt":"0"}}

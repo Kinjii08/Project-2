@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5cc188eb878ec33a1cb1f11d"},"name":"old school","email":"t@t.t","field":"IT","degrees":"Certification","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5cc1890d878ec33a1cb1f11e"},"name":"new school","email":"ccc@t.t","field":"Art","degrees":"Certification","__v":{"$numberInt":"0"}}
