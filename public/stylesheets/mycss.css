@@ -9,8 +9,6 @@ title {
   position: absolute;
 }
 
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -33,18 +31,7 @@ html {
 .flaticon {
   width: 200px;
   height: 150px;
-  border: 2px solid; 
-  ;
-}
-
-.section {
-
-
-}
-
-.section_flat {
-  
- 
+  border: 2px solid;
 }
 
 h1,
@@ -212,19 +199,19 @@ nav a#toggle-btn {
   background-image: url("./../images/Prez\ 2504.png");
   background-size: cover;
 }
-.second_part{
+.second_part {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.second_part_text{
-   display: flex;
-    flex-direction: column;
-    width: 40%;
+.second_part_text {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
 }
 
-.img_intro{
+.img_intro {
   width: 40%;
   height: auto;
 }
@@ -253,10 +240,6 @@ nav a#toggle-btn {
   text-align: left;
 }
 
-
-
-
-
 @media screen and (max-width: 500px) {
   .video-content {
     display: grid;
@@ -265,7 +248,6 @@ nav a#toggle-btn {
     text-align: left;
   }
 }
-
 
 #subscribe {
   background: #343323;
@@ -304,7 +286,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background:#282627;
+  background: #282627;
   text-align: center;
   padding: 15px;
 }
@@ -338,4 +320,3 @@ footer span {
   border-radius: 10px;
   background-color: #343233;
 }
-
